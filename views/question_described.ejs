@@ -1,0 +1,45 @@
+<%- include('./partials/head.ejs')%>
+<body>
+  <%- include('./partials/navbar.ejs')%>
+  <div class="container">
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <h4><%= question.Title %><h4>
+      </div>
+      <div class="card-footer">
+        <% if(question.Description) { %>
+          <h5><%= question.Description %><h5>
+        <% } else { %>
+          <h6>Não há descrição para essa pergunta...</h6>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <form class = "container" action="/answers_storage" method="post">
+    <br>
+    <h3>Responda</h3>
+    <br>
+    <textarea placeholder="Digite sua resposta aqui. . ." class='form-control' name = 'ResponseBody'></textarea>
+    <br>
+    <button type="submit" class = 'btn btn-dark'>Enviar</button>
+    <input type="hidden" name = "questionID" value="<%= question.id%>">
+    <br>
+  </form>
+
+  <div class="container">
+    <br>
+    <h3>Respostas</h3>
+    <% Responses.forEach(Responses => { %>
+      <div class="card">
+        <div class="card-body">
+          <p><%= Responses.response %></p>
+          <br>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+  </div>
+</body>
+<%- include('./partials/footer.ejs')%>

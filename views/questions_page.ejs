@@ -1,0 +1,20 @@
+-p-<%- include('./partials/head.ejs')%>
+<link rel="stylesheet" href="/css/style.css">
+  <body>
+    <%- include('./partials/navbar.ejs')%>
+      <div class="card-body">
+        <form method="post" action="/save_questions">
+            <label> Title </label>
+            <input type="text" placeholder="Title" class="form-control" name="title"></input> <!--A classe form-control mantém os formulários organizados, tanto os títulos quanto as caixas de resposta-->
+            <br>
+            <label> Description </label>
+            <textarea placeholder="Describe your question" class="form-control" name="description"></textarea>
+            <br>
+            <button class="btn btn-success"> Send! </button>
+        </form>
+      </div>
+
+      </div>
+
+  </body>
+<%- include('./partials/footer.ejs')%>
